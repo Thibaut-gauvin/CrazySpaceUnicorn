@@ -8,11 +8,15 @@ var uglify   = require('gulp-uglify'  );
 var config = { bowerDir: './vendor' };
 
 gulp.task( 'default',
-    [ 'build', 'serve']
+    [ 'build', 'buildProd', 'serve']
 );
 
 gulp.task( 'build',
-    [ 'game', 'html', 'asset', 'css' ]
+    [ 'game', 'views', 'asset', 'css', 'serve' ]
+);
+
+gulp.task( 'prod',
+    [ 'gameProd', 'views', 'asset', 'css', 'serveProd' ]
 );
 
 /**
@@ -23,9 +27,22 @@ gulp.task('serve', function () {
 });
 
 /**
- * Compile game files
+ * Merge game files (without compiling)
  */
 gulp.task( 'game', function() {
+    gulp.src(
+        [
+            config.bowerDir + '/phaser/build/phaser.min.js',
+            'frontend/**/*.js'
+        ])
+        .pipe( concat('game.js') )
+        .pipe( gulp.dest( 'dist/public/js' ) );
+});
+
+/**
+ * Merge & Compile game files (More Longer)
+ */
+gulp.task( 'gameProd', function() {
     gulp.src(
         [
             config.bowerDir + '/phaser/build/phaser.min.js',
@@ -37,9 +54,9 @@ gulp.task( 'game', function() {
 });
 
 /**
- * Dump Html
+ * Dump Views
  */
-gulp.task( 'html', function() {
+gulp.task( 'views', function() {
     gulp.src(
         [
             'frontend/index.html',
@@ -49,7 +66,7 @@ gulp.task( 'html', function() {
 });
 
 /**
- * Dump Img & Audio asset
+ * Dump Images, Icons & Audios assets
  */
 gulp.task( 'asset', function() {
     gulp.src(
@@ -69,7 +86,7 @@ gulp.task( 'asset', function() {
 });
 
 /**
- * CSS
+ * Merge Css
  */
 gulp.task( 'css', function() {
     gulp.src(
