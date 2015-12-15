@@ -1,5 +1,5 @@
 {
-  "name": "trapZeSpace",
+  "name": "CrazySpaceUnicorn",
   "version": "1.0.0",
   "description": "a game made with phazerJs & nodeJs, for circle of project in G4 institute school (décember 2015)",
   "main": "app.js",
@@ -7,7 +7,7 @@
   "license": "apache",
   "repository": {
     "type": "git",
-    "url": "git@github.com:Thibaut-gauvin/trapZeSpace.git"
+    "url": "git@github.com:Thibaut-gauvin/CrazySpaceUnicorn.git"
   },
   "dependencies": {
     "express": "^4.13.3",
