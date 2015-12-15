@@ -1,0 +1,20 @@
+{
+  "name": "trapZeSpace",
+  "version": "1.0.0",
+  "description": "a game made with phazerJs & nodeJs, for circle of project in G4 institute school (décember 2015)",
+  "main": "app.js",
+  "author": "Gauvin Thibaut, Brandon Beurion, Clementin Rastavan, Quentin Philippe, Kadi Redoine, Cammaroto Jennifer",
+  "license": "apache",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Thibaut-gauvin/trapZeSpace.git"
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "path": "^0.12.7",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-express": "^0.3.5",
+    "gulp-uglify": "^1.5.1"
+  }
+}

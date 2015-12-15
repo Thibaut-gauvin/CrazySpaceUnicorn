@@ -1,0 +1,22 @@
+{
+  "name": "trapZeSpace",
+  "version": "1.0.0",
+  "homepage": "git@github.com:Thibaut-gauvin/trapZeSpace.git",
+  "authors": [
+    "Thibaut Gauvin     <gauvin.thibaut83@gmail.com>",
+    "Brandon Beurion    <turgotbeurionbrandon@gmail.com>",
+    "Clementin Rastavan <clementin.rastavan@gmail.com>",
+    "Quentin Philippe   <quentin.philippe@outlook.com>",
+    "Kadi Redoine       <redoine.kadi@gmail.com>",
+    "Cammaroto Jennifer <jen.camm.jc@gmail.com>"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "phaser": "~2.4.4"
+  }
+}

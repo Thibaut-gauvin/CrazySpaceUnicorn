@@ -1,0 +1,10 @@
+# NodeJs & bower files
+/node_modules
+/vendor
+npm-debug.log
+
+# Public directory
+/dist
+
+# IDE config
+/.idea

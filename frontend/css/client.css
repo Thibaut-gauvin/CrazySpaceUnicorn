@@ -1,0 +1,9 @@
+body {
+    margin: 0;
+    background: #2B2E31 url(../assets/img/screen-bg.png) repeat;
+}
+
+.error {
+    text-align: center;
+    background-color: white;
+}
