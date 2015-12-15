@@ -1,7 +1,7 @@
 {
   "name": "CrazySpaceUnicorn",
   "version": "1.0.0",
-  "description": "a game made with phazerJs & nodeJs, for circle of project in G4 institute school (décember 2015)",
+  "description": "A game made with phazerJs & nodeJs, for circle of project in G4 institute school (December 2015)",
   "main": "app.js",
   "author": "Gauvin Thibaut, Brandon Beurion, Clementin Rastavan, Quentin Philippe, Kadi Redoine, Cammaroto Jennifer",
   "license": "apache",
@@ -12,6 +12,7 @@
   "dependencies": {
     "express": "^4.13.3",
     "path": "^0.12.7",
+    "bower": "^1.7.1",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
     "gulp-express": "^0.3.5",

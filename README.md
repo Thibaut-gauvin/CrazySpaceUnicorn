@@ -1,29 +1,27 @@
 # Crazy Space Unicorn
 
-**A game made with pure Javascript and some html/css**
+**A game made with pure Javascript and some Html/Css**
 
 **We use:**
-
 - NodeJs
 - PhaserJs
 
-# Requirments:
+# Requirements:
 
 **In order to play the game you need only need NodeJs installed on your machine:**
 
 Check the [Official WebSite](https://nodejs.org/en/download/)
 
-**Then you need to install Bower & Gulp:**
-
-    $ npm install -g bower
-    $ npm install -g gulp
-
-**Once you have installed required package you can clone the project:**
+**Once you have installed nodeJs you can clone the project:**
 You need git installed on your machine
 
-    $ gitn clone git@github.com:Thibaut-gauvin/CrazySpaceUnicorn.git
+    $ git clone git@github.com:Thibaut-gauvin/CrazySpaceUnicorn.git
 
-**Now place into the project directory and build the project with:**
+**Now place into the project directory and Install dependency:**
+
+    $ npm install
+
+**Build the project with:**
 
     $ gulp build
 
