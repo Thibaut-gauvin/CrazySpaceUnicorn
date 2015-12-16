@@ -23,7 +23,7 @@ PhaserGame.Boot.prototype = {
 	create: function() {
 
         // Set the default time speed of the environment
-        var timeSpeed = -100;
+        var timeSpeed = -300;
 
         // Create background
         this.level1 = this.add.tileSprite(0, 0, this.game.width, this.game.height, 'level-1');
@@ -42,7 +42,7 @@ PhaserGame.Boot.prototype = {
     },
     update: function() {
         // Set velocity & movement speed of the player
-        var playerSpeed = 100;
+        var playerSpeed = 300;
         this.player.body.velocity.set(0);
 
         // Move up and down method

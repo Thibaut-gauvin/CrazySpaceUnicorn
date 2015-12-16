@@ -1,6 +1,7 @@
 body {
     margin: 0;
-    background: #2B2E31 url(../assets/img/screen-bg.png) repeat;
+    padding: 0;
+    background: #ddd;
 }
 
 .error {
@@ -8,8 +9,26 @@ body {
     background-color: white;
 }
 
+.center{
+    text-align: center;
+    margin: auto;
+}
+
+header{
+    margin-bottom: 20px;
+    display: block;
+}
+
+header > img{
+    width: 300px;
+    display: block;
+}
+
 #crazyUnicorn {
     margin: 40px auto 40px auto;
     width: 950px;
     height: 500px;
+
+    border-radius: 5px;
+    border: 6px solid #c9467a;
 }
