@@ -1,8 +1,9 @@
-Ball.Preloader = function(game) {};
-Ball.Preloader.prototype = {
+/*
+Unicorn.Preloader = function(game) {};
+Unicorn.Preloader.prototype = {
 	preload: function() {
-		this.preloadBg = this.add.sprite((Ball._WIDTH-297)*0.5, (Ball._HEIGHT-145)*0.5, 'preloaderBg');
-		this.preloadBar = this.add.sprite((Ball._WIDTH-158)*0.5, (Ball._HEIGHT-50)*0.5, 'preloaderBar');
+		this.preloadBg = this.add.sprite((Unicorn._WIDTH-297)*0.5, (Unicorn._HEIGHT-145)*0.5, 'preloaderBg');
+		this.preloadBar = this.add.sprite((Unicorn._WIDTH-158)*0.5, (Unicorn._HEIGHT-50)*0.5, 'preloaderBar');
 		this.load.setPreloadSprite(this.preloadBar);
 
 		this.load.image('ball', 				'assets/img/ball.png');
@@ -27,4 +28,5 @@ Ball.Preloader.prototype = {
 		this.game.state.start('MainMenu');
 	}
 };
-console.log('ficher Preloader.js chargé');
+console.log('End of Preloader.js');
+*/

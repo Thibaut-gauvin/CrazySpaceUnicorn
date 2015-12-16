@@ -1,6 +1,7 @@
-Ball.Howto = function(game) {
+/*
+Unicorn.Howto = function(game) {
 };
-Ball.Howto.prototype = {
+Unicorn.Howto.prototype = {
 	create: function() {
 		this.buttonContinue = this.add.button(0, 0, 'screen-howtoplay', this.startGame, this);
 	},
@@ -8,4 +9,5 @@ Ball.Howto.prototype = {
 		this.game.state.start('Game');
 	}
 };
-console.log('ficher Hotwto.js chargé');
+console.log('End of Hotwto.js');
+*/

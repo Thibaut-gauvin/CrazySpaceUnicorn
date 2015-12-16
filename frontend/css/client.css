@@ -7,3 +7,9 @@ body {
     text-align: center;
     background-color: white;
 }
+
+#crazyUnicorn {
+    margin: 40px auto 40px auto;
+    width: 950px;
+    height: 500px;
+}
