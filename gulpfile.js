@@ -83,6 +83,11 @@ gulp.task( 'asset', function() {
             'frontend/**/*.ogg'
         ])
         .pipe( gulp.dest('dist/public') );
+    gulp.src(
+        [
+            'frontend/**/*.xml'
+        ])
+        .pipe( gulp.dest('dist/public') );
 });
 
 /**

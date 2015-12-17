@@ -8,7 +8,6 @@ body {
     padding: 0;
     background: #ddd;
     background: url(../assets/img/site/background.png) no-repeat;
-    background-size: cover; 
 }
 
 .error {
@@ -66,14 +65,15 @@ header > img {
 }
 
 @-webkit-keyframes animSoucoupe {
-    0%   {right: -100px; top: 100px;}
-    100% {right: 300px; top: -300px;}
+    0%   {left: 1800px; right: -100px; top: 150px;}
+    50%  {left: 1600px; right: 0px; top: 150px;}
+    100% {left: 1600px; right: 0px; top: -300px;}
 }
 
 @keyframes animSoucoupe {
     0%   {left: 1800px; right: -100px; top: 150px;}
-    50%  {left: 1200px; right: 0px; top: 150px;}
-    100% {left: 1200px; right: 0px; top: -300px;}
+    50%  {left: 1600px; right: 0px; top: 150px;}
+    100% {left: 1600px; right: 0px; top: -300px;}
 }
 
 

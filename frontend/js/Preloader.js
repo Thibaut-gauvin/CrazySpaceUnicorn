@@ -30,7 +30,10 @@ PhaserGame.Preloader.prototype = {
         /** Story Quest **/
         // this.load.image('img name',   'path/to/file');
 
-	},
+        /** Fonts **/
+        game.load.image('fontScore',        'assets/fonts/KNIGHT3.png');
+
+    },
 	create: function() {
 
         this.game.state.start('MainMenu');
