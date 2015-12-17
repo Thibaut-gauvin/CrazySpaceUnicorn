@@ -39,5 +39,3 @@ PhaserGame.MainMenu.prototype = {
 };
 
 game.state.add('MainMenu', PhaserGame.MainMenu);
-
-console.log('End of MainMenu.js');

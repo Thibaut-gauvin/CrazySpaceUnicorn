@@ -54,5 +54,3 @@ PhaserGame.WorldMap.prototype = {
 };
 
 game.state.add('WorldMap', PhaserGame.WorldMap);
-
-console.log('End of WorldMap.js');

@@ -15,7 +15,11 @@ var PhaserGame = {
 
     width: width,
     height: height,
-    stage: 0
+    stage: 4,
+    stageName: '',
+
+    levelScore: 0,
+    TotalScore: 0
 };
 
 PhaserGame.Boot = function(game) {};
@@ -37,5 +41,3 @@ PhaserGame.Boot.prototype = {
 
 game.state.add('Boot', PhaserGame.Boot);
 game.state.start('Boot');
-
-console.log('End of Boot.js');

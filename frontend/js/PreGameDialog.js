@@ -9,7 +9,11 @@ PhaserGame.PreGameDialog = function(game, stageNumber) {};
 PhaserGame.PreGameDialog.prototype = {
 	create: function() {
 
-        this.buttonContinue = this.add.button(0, 0, 'menuBackground', this.startGame, this);
+        this.buttonContinue = this.add.button(0, 0, 'menu-background', this.startGame, this);
+
+        var scalex = PhaserGame.width / this.buttonContinue.width;
+        var scaley = PhaserGame.height / this.buttonContinue.height;
+        this.buttonContinue.scale.setTo(scalex, scaley);
 
         console.log('stage number: ' + PhaserGame.stage);
 	},
