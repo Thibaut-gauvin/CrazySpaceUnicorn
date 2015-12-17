@@ -14,7 +14,8 @@ var PhaserGame = {
     playerSpeed: 300,
 
     width: width,
-    height: height
+    height: height,
+    stage: 0
 };
 
 PhaserGame.Boot = function(game) {};

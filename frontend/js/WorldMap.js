@@ -49,8 +49,8 @@ PhaserGame.WorldMap.prototype = {
         // button to "read the article"
     },
     selectStage: function(stage) {
-
-        this.game.state.start('PreGameDialog', stage.number);
+        PhaserGame.stage = stage.number;
+        this.game.state.start('PreGameDialog');
         // alert(stage.number);
     }
 };
