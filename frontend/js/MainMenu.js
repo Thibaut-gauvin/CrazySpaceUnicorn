@@ -9,11 +9,30 @@ PhaserGame.MainMenu = function(game) {};
 PhaserGame.MainMenu.prototype = {
 	create: function() {
 
-		this.mainMenuButton = this.add.button(0, 0, 'mainMenu', this.displayWorldMap, this);
+		this.mainMenu = this.add.sprite(0, 0, 'mainMenu');
+
+		var scalex = PhaserGame.width / this.mainMenu.width;
+        var scaley = PhaserGame.height / this.mainMenu.height;
+        this.mainMenu.scale.setTo(scalex, scaley);
+
+        var buttons = {
+            button1:{ y:450, image:'button-start', fonction:this.displayWorldMap },
+            button2:{ y:575, image:'button-score', fonction:'' },
+            button3:{ y:700, image:'button-controls', fonction:this.displayHowToPlay },
+            button4:{ y:825, image:'button-credits', fonction:'' },
+        };
+
+        for(var key in buttons) {
+        	this.startButton = this.add.button(485*scalex, buttons[key].y*scaley, buttons[key].image, buttons[key].fonction, this, 1, 0);
+        	this.startButton.scale.setTo(scalex,scaley);
+        }
 	},
 	displayWorldMap: function() {
 
 		this.game.state.start('WorldMap');
+	},
+	displayHowToPlay: function() {
+		this.game.state.start('HowToPlay');
 	}
 };
 
