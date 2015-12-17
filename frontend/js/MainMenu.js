@@ -19,7 +19,7 @@ PhaserGame.MainMenu.prototype = {
             button1:{ y:450, image:'button-start', fonction:this.displayWorldMap },
             button2:{ y:575, image:'button-score', fonction:'' },
             button3:{ y:700, image:'button-controls', fonction:this.displayHowToPlay },
-            button4:{ y:825, image:'button-credits', fonction:'' }
+            button4:{ y:825, image:'button-credits', fonction:this.displayCredits }
         };
 
         for(var key in buttons) {
@@ -28,9 +28,11 @@ PhaserGame.MainMenu.prototype = {
         }
 	},
 	displayWorldMap: function() {
-
 		this.game.state.start('WorldMap');
 	},
+    displayCredits: function() {
+        this.game.state.start('Credits');
+    },
 	displayHowToPlay: function() {
 		this.game.state.start('HowToPlay');
 	}
