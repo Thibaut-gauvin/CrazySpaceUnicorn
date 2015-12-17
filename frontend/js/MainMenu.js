@@ -1,19 +1,22 @@
-/*
-Unicorn.MainMenu = function(game) {};
-Unicorn.MainMenu.prototype = {
-	create: function() {
-		this.add.sprite(0, 0, 'screen-mainmenu');
-		this.gameTitle = this.add.sprite(Unicorn._WIDTH*0.5, 40, 'title');
-		this.gameTitle.anchor.set(0.5,0);
-		this.startButton = this.add.button(Unicorn._WIDTH*0.5, 200, 'button-start', this.startGame, this, 2, 0, 1);
-		this.startButton.anchor.set(0.5,0);
-		this.startButton.input.useHandCursor = true;
+/**
+ *
+ * 3. Main Menu
+ *
+ **/
 
-		// button to "read the article"
+PhaserGame.MainMenu = function(game) {};
+
+PhaserGame.MainMenu.prototype = {
+	create: function() {
+
+		this.mainMenuButton = this.add.button(0, 0, 'mainMenu', this.displayWorldMap, this);
 	},
-	startGame: function() {
-		this.game.state.start('Howto');
+	displayWorldMap: function() {
+
+		this.game.state.start('WorldMap');
 	}
 };
+
+game.state.add('MainMenu', PhaserGame.MainMenu);
+
 console.log('End of MainMenu.js');
-*/

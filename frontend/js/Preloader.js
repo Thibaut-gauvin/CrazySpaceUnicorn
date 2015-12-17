@@ -1,32 +1,42 @@
-/*
-Unicorn.Preloader = function(game) {};
-Unicorn.Preloader.prototype = {
+/**
+ *
+ * 2. Pre-Loader
+ *
+ **/
+
+PhaserGame.Preloader = function(game) {};
+
+PhaserGame.Preloader.prototype = {
 	preload: function() {
-		this.preloadBg = this.add.sprite((Unicorn._WIDTH-297)*0.5, (Unicorn._HEIGHT-145)*0.5, 'preloaderBg');
-		this.preloadBar = this.add.sprite((Unicorn._WIDTH-158)*0.5, (Unicorn._HEIGHT-50)*0.5, 'preloaderBar');
-		this.load.setPreloadSprite(this.preloadBar);
 
-		this.load.image('ball', 				'assets/img/ball.png');
-		this.load.image('hole', 				'assets/img/hole.png');
-		this.load.image('element-w', 			'assets/img/element-w.png');
-		this.load.image('element-h', 			'assets/img/element-h.png');
-		this.load.image('panel', 				'assets/img/panel.png');
-		this.load.image('title', 				'assets/img/title.png');
-		this.load.image('button-pause', 		'assets/img/button-pause.png');
-		this.load.image('screen-bg', 			'assets/img/screen-bg.png');
-		this.load.image('screen-mainmenu', 		'assets/img/screen-mainmenu.png');
-		this.load.image('screen-howtoplay', 	'assets/img/screen-howtoplay.png');
-		this.load.image('border-horizontal', 	'assets/img/border-horizontal.png');
-		this.load.image('border-vertical', 		'assets/img/border-vertical.png');
+        // Barre de chargement
+        var preloadbarPos = new Phaser.Point( (game.stage.height/2) - 131.5, (game.stage.height/2) - 58);
+        this.preloadBar = this.add.sprite(preloadbarPos.x, preloadbarPos.y, 'preloaderBar');
+        this.load.setPreloadSprite(this.preloadBar);
 
-		this.load.spritesheet('button-audio', 	'assets/img/button-audio.png', 35, 35);
-		this.load.spritesheet('button-start', 	'assets/img/button-start.png', 146, 51);
+        /** Level **/
+        this.load.image('bg_stage_1',       'assets/img/game/background_stage_1.png');
+        this.load.image('bg_stage_1',       'assets/img/game/background_stage_2.png');
+        this.load.image('player',           'assets/img/game/unicorn.png');
 
-		this.load.audio('audio-bounce', ['assets/audio/bounce.ogg', 'assets/audio/bounce.mp3', 'assets/audio/bounce.m4a']);
+        /** Mapmonde **/
+        this.load.image('worldmap',         'assets/img/menu/worldmap.png');
+        this.load.image('stage',            'assets/img/menu/stage.png');
+
+        /** Menu **/
+        this.load.image('menuBackground',   'assets/img/menu/menu_background.jpg');
+        this.load.image('mainMenu',         'assets/img/menu/main_menu.png');
+
+        /** Story Quest **/
+        // this.load.image('img name',   'path/to/file');
+
 	},
 	create: function() {
-		this.game.state.start('MainMenu');
+
+        this.game.state.start('MainMenu');
 	}
 };
+
+game.state.add('Preloader', PhaserGame.Preloader);
+
 console.log('End of Preloader.js');
-*/

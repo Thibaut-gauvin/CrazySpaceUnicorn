@@ -20,6 +20,7 @@ You need git installed on your machine
 **Now place into the project directory and Install dependency:**
 
     $ npm install
+    $ bower install
 
 **Build the project with:**
 

@@ -16,7 +16,7 @@ gulp.task( 'build',
 );
 
 gulp.task( 'prod',
-    [ 'gameProd', 'views', 'asset', 'css', 'serveProd' ]
+    [ 'gameProd', 'views', 'asset', 'css', 'serve' ]
 );
 
 /**
