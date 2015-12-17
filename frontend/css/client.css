@@ -28,9 +28,9 @@ header > img {
 }
 
 #crazyUnicorn {
-    margin: 0 auto 40px auto;
-    width: 950px;
-    height: 500px;
+    margin: 0 auto;
+    width: 933px;
+    height: 653px;
 
     border-radius: 5px;
     border: 6px solid #c9467a;
@@ -69,14 +69,14 @@ header > img {
 
 @-webkit-keyframes animSoucoupe {
     0%   {left: 1800px; right: -100px; top: 150px;}
-    50%  {left: 1200px; right: 0px; top: 150px;}
-    100% {left: 1200px; right: 0px; top: -300px;}
+    50%  {left: 1600px; right: 0px; top: 150px;}
+    100% {left: 1600px; right: 0px; top: -300px;}
 }
 
 @keyframes animSoucoupe {
     0%   {left: 1800px; right: -100px; top: 150px;}
-    50%  {left: 1200px; right: 0px; top: 150px;}
-    100% {left: 1200px; right: 0px; top: -300px;}
+    50%  {left: 1600px; right: 0px; top: 150px;}
+    100% {left: 1600px; right: 0px; top: -300px;}
 }
 
 

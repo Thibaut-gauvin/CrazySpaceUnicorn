@@ -11,7 +11,8 @@ PhaserGame.WorldMap.prototype = {
         var mapGroup;
 
         // Intégrer la map
-        this.mapmonde = this.add.sprite(0, 0, 'worldmap');
+        var namefile = 'worldmap_' + PhaserGame.stage;
+        this.mapmonde = this.add.sprite(0, 0, namefile);
 
         // Redimension de la map au format de l'écran
         var scalex = PhaserGame.width / this.mapmonde.width;
@@ -19,20 +20,18 @@ PhaserGame.WorldMap.prototype = {
         this.mapmonde.scale.setTo(scalex, scaley);
 
         // Tableau de coordonées du positionnement de chaque planète
-        var coords = {
-            coord1:{ x:180, y:780 },
-            coord2:{ x:315, y:480 },
-            coord3:{ x:770, y:720 },
-            coord4:{ x:810, y:240 },
-            coord5:{ x:1130, y:430 }
-        };
+        var coords = [
+            { x:180, y:780 },
+            { x:315, y:480 },
+            { x:770, y:720 },
+            { x:810, y:240 },
+            { x:1130, y:430 }
+        ];
 
         mapGroup = this.add.group();
 
-        var i = 1;
-        for(var key in coords) {
-            // Ajouter les liens sur la planète
-            var stage = this.add.image(coords[key].x*scalex, coords[key].y*scaley, "stage");
+        for(var i=0; i<=PhaserGame.stage; i++) {
+            var stage = this.add.image(coords[i].x*scalex, coords[i].y*scaley, "stage");
 
             // Positionnement par rapport au centre de l'image
             stage.anchor.setTo(0.5);
@@ -44,9 +43,8 @@ PhaserGame.WorldMap.prototype = {
 
             // Ajouter le lien sur la map
             mapGroup.add(stage);
-            i++;
         }
-        // button to "read the article"
+
     },
     selectStage: function(stage) {
         PhaserGame.stage = stage.number;

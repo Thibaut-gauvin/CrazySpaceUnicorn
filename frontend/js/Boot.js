@@ -4,8 +4,8 @@
  *
  **/
 
-var width = 950;
-var height = 500;
+var width = 1400/1.5;
+var height = 980/1.5;
 
 var game = new Phaser.Game(width, height, Phaser.AUTO, 'crazyUnicorn');
 
@@ -24,7 +24,9 @@ PhaserGame.Boot.prototype = {
     preload: function() {
 
         this.game.renderer.renderSession.roundPixels = true;
-        this.physics.startSystem(Phaser.Physics.ARCADE);
+        this.physics.startSystem(Phaser.Physics.P2JS);
+        game.physics.p2.restitution = 0.8;
+
         this.load.image('preloaderBar', 'assets/img/menu/rainbow.png');
 	},
 	create: function() {
