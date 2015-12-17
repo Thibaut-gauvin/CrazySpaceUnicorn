@@ -1,6 +1,6 @@
 /**
  *
- * 4. World Map
+ * 4.3. How to play
  *
  **/
 

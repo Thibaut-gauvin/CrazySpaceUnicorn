@@ -15,7 +15,7 @@ var PhaserGame = {
 
     width: width,
     height: height,
-    stage: 0
+    stage: 2
 };
 
 PhaserGame.Boot = function(game) {};
