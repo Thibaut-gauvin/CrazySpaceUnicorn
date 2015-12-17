@@ -3,7 +3,7 @@
 var express    = require('express');
 var path       = require('path');
 var app        = express();
-var listenPort = 80;
+var listenPort = 3000;
 
 
 // Serve static file
