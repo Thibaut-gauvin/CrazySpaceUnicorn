@@ -19,7 +19,7 @@ PhaserGame.MainMenu.prototype = {
             button1:{ y:450, image:'button-start', fonction:this.displayWorldMap },
             button2:{ y:575, image:'button-score', fonction:'' },
             button3:{ y:700, image:'button-controls', fonction:this.displayHowToPlay },
-            button4:{ y:825, image:'button-credits', fonction:'' },
+            button4:{ y:825, image:'button-credits', fonction:'' }
         };
 
         for(var key in buttons) {

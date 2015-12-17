@@ -14,7 +14,7 @@ app.get('/', function(req, res){
     res.sendFile(path.join (__dirname, '..', 'dist/index.html'));
 });
 
-// bad url
+// Bad url
 app.use(function(req, res) {
     res.sendFile(path.join (__dirname, '..', 'dist/error.html'));
 });

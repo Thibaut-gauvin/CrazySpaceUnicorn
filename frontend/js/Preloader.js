@@ -10,7 +10,6 @@ PhaserGame.Preloader.prototype = {
 	preload: function() {
 
         // Barre de chargement
-        //var preloadbarPos = new Phaser.Point( (game.stage.height/2) - 131.5, (game.stage.height/2) - 58);
         this.preloadBar = this.add.sprite((PhaserGame.width*0.5)-131.5, (PhaserGame.height*0.5)-58, 'preloaderBar');
         this.load.setPreloadSprite(this.preloadBar);
 
@@ -36,13 +35,10 @@ PhaserGame.Preloader.prototype = {
         /** Story Quest **/
         // this.load.image('img name',   'path/to/file');
 
-        /** Fonts **/
-        game.load.image('fontScore',        'assets/fonts/KNIGHT3.png');
-
     },
 	create: function() {
 
-                this.game.state.start('MainMenu');
+        this.game.state.start('MainMenu');
 	}
 };
 
