@@ -1,7 +1,14 @@
+*{
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+    
 body {
     margin: 0;
     padding: 0;
     background: #ddd;
+    background: url(../assets/img/site/background.png) no-repeat;
+    background-size: cover; 
 }
 
 .error {
@@ -16,7 +23,7 @@ body {
 
 header > img {
     margin: 10px auto 10px auto;
-    width: 300px;
+    width: 800px;
     display: block;
 }
 
@@ -28,3 +35,45 @@ header > img {
     border-radius: 5px;
     border: 6px solid #c9467a;
 }
+
+.imgDynam{
+    width: 100px;
+    display: inline;
+}
+
+.animFusee{
+    -webkit-animation: animFusee 5s infinite;
+    animation: animFusee 5s infinite;
+    position :relative;
+    margin-bottom: -80px;
+}
+
+@-webkit-keyframes animFusee {
+    0%   {left: -100px; top: 100px;}
+    100% {left: 300px; top: -300px;}
+}
+
+@keyframes animFusee {
+    0%   {left: -100px; top: 100px;}
+    100% {left: 300px; top: -300px;}
+}
+
+.animSoucoupe{
+    -webkit-animation: animSoucoupe 5s infinite;
+    animation: animSoucoupe 5s infinite;
+    position :relative;
+    margin-bottom: -80px;
+}
+
+@-webkit-keyframes animSoucoupe {
+    0%   {right: -100px; top: 100px;}
+    100% {right: 300px; top: -300px;}
+}
+
+@keyframes animSoucoupe {
+    0%   {left: 1800px; right: -100px; top: 150px;}
+    50%  {left: 1200px; right: 0px; top: 150px;}
+    100% {left: 1200px; right: 0px; top: -300px;}
+}
+
+
