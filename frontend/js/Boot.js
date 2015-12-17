@@ -4,8 +4,8 @@
  *
  **/
 
-var width = 950;
-var height = 500;
+var width = 1400/1.5;
+var height = 980/1.5;
 
 var game = new Phaser.Game(width, height, Phaser.AUTO, 'crazyUnicorn');
 
