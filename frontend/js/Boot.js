@@ -28,8 +28,9 @@ PhaserGame.Boot.prototype = {
     preload: function() {
 
         this.game.renderer.renderSession.roundPixels = true;
-        this.physics.startSystem(Phaser.Physics.P2JS);
-        game.physics.p2.restitution = 0.8;
+        this.game.physics.startSystem(Phaser.Physics.P2JS);
+        game.physics.p2.setImpactEvents(true);
+        this.game.physics.p2.restitution = 0.8;
 
         this.load.image('preloaderBar', 'assets/img/menu/rainbow.png');
 	},

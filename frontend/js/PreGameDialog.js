@@ -24,5 +24,3 @@ PhaserGame.PreGameDialog.prototype = {
 };
 
 game.state.add('PreGameDialog', PhaserGame.PreGameDialog);
-
-console.log('End of PreGameDialog.js');

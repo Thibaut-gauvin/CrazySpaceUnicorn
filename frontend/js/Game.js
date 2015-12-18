@@ -11,6 +11,12 @@ PhaserGame.Game.prototype = {
 
         this.timer = 0;
         this.fontScore = { font: "24px Arial", fill: "#e4beef", align: "right" };
+
+        //  Create our collision groups. One for the player, one for the enemies
+        this.playerCollisionGroup = game.physics.p2.createCollisionGroup();
+        this.enemiesCollisionGroup = game.physics.p2.createCollisionGroup();
+
+        game.physics.p2.updateBoundsCollisionGroup();
     },
     create: function() {
 
@@ -22,21 +28,20 @@ PhaserGame.Game.prototype = {
         var startingPos = new Phaser.Point( 50, (game.stage.height/2) - 20);
         this.player = this.add.sprite(startingPos.x, startingPos.y, 'player');
         this.player.scale.set(1);
-        this.player.smoothed = false;
 
-        // Create our physics body.
-        game.physics.p2.enable(this.player);
-        this.player.body.setRectangle(102, 89);
+        // Create physics body.
+        this.physics.p2.enable(this.player, true);
+        this.player.body.setRectangle(90, 70);
+        this.player.body.fixedRotation = true;
 
-        // This boolean controls if the player should collide with the world bounds or not
-        this.player.body.collideWorldBounds = true;
+        this.player.body.setCollisionGroup(this.playerCollisionGroup);
+        this.player.body.collides(this.enemiesCollisionGroup, this.GameOver, this);
 
 
         /////////////////////////////////////
 
         // Create enemy generator
-        // game.time.events.loop(delay, callback, callbackContext, arguments)
-        this.enemyGenerator = this.game.time.events.loop(Phaser.Timer.SECOND * 1.25, this.generateEnemies, this);
+        this.enemyGenerator = this.time.events.loop(Phaser.Timer.SECOND * 0.75, this.generateEnemies, this);
         this.enemyGenerator.timer.start();
 
 
@@ -51,24 +56,38 @@ PhaserGame.Game.prototype = {
 
         /** Display score on HUD **/
 
-        this.timerText = game.add.text(50, 20, "Time: "+this.timer, this.fontScore);
+        this.timerText = this.add.text(50, 20, "Score: " + this.timer, this.fontScore);
         this.timerText.anchor.set(0.5);
         this.time.events.loop(Phaser.Timer.SECOND, this.updateCounter, this);
     },
 	updateCounter: function() {
 
-        this.timer++;
+        this.timer = this.timer + 3;
         this.timerText.setText("Time: "+this.timer);
 	},
     generateEnemies: function() {
-        console.log('enemy generation haha');
+
+        var enemyName = 'enemy_' + Math.floor((Math.random() * 5) + 1);
+        this.enemy = this.add.sprite(PhaserGame.width - 4, this.game.world.randomY, enemyName);
+
+        this.enemy.id = enemyName + Math.floor((Math.random() * 1000) + 1);
+        this.enemy.scale.set(1);
+
+        this.physics.p2.enable(this.enemy, true);
+        this.enemy.body.setRectangle(this.enemy.width, this.enemy.height);
+        this.enemy.body.fixedRotation = true;
+
+        this.enemy.body.setCollisionGroup(this.enemiesCollisionGroup);
+        this.enemy.body.collides(this.playerCollisionGroup);
+
+        game.debug.spriteBounds(this.enemy);
     },
 	update: function() {
 
-        this.player.body.setZeroVelocity();
-
         // Trigger Press SpaceBar event
         this.spaceBar.onDown.add(this.manageUnicornPower, this);
+
+        this.player.body.setZeroVelocity();
 
         // Move up and down method
 		if (this.cursors.up.isDown)
@@ -82,10 +101,26 @@ PhaserGame.Game.prototype = {
 	},
     manageUnicornPower: function() {
 
-        this.speedEffect = this.add.tileSprite(0, 0, this.game.width, this.game.height, 'speed_effect');
-        this.speedEffect.autoScroll((PhaserGame.timeSpeed) * 2, 0);
+        this.speedEffect = this.add.tileSprite(0, 0, PhaserGame.width, PhaserGame.height, 'speed_effect');
+        this.speedEffect.autoScroll(PhaserGame.timeSpeed * 2, 0);
 
         this.level1.autoScroll(PhaserGame.timeSpeed + 100, 0);
+    },
+    GameOver: function () {
+
+        PhaserGame.TotalScore = this.timer;
+
+        this.game.state.start('GameOver');
+    },
+    render: function() {
+
+        // player
+        game.debug.spriteBounds(this.player);
+        // game.debug.body(this.player);
+
+        // enemy
+        // game.debug.spriteBounds(this.enemiesGroup);
+        // game.debug.body(this.enemiesGroup);
     }
 };
 

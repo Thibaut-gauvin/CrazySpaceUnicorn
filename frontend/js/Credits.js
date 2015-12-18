@@ -21,5 +21,3 @@ PhaserGame.Credits.prototype = {
 };
 
 game.state.add('Credits', PhaserGame.Credits);
-
-console.log('End of Credits.js');

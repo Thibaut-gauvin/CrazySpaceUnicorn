@@ -25,5 +25,3 @@ PhaserGame.HowToPlay.prototype = {
 };
 
 game.state.add('HowToPlay', PhaserGame.HowToPlay);
-
-console.log('End of HowToPlay.js');

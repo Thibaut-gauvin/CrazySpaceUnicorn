@@ -11,8 +11,7 @@ PhaserGame.WorldMap.prototype = {
         var mapGroup;
 
         // Intégrer la map
-        var namefile = 'worldmap_' + PhaserGame.stage;
-        this.mapmonde = this.add.sprite(0, 0, namefile);
+        this.mapmonde = this.add.sprite(0, 0, 'worldmap_' + PhaserGame.stage);
 
         // Redimension de la map au format de l'écran
         var scalex = PhaserGame.width / this.mapmonde.width;
