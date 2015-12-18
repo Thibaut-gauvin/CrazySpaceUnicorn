@@ -13,7 +13,8 @@ PhaserGame.Game.prototype = {
         this.score = 0;
         this.fontScore = { font: "24px Arial", fill: "#e4beef", align: "left" };
 
-        /** Create our collision groups. One for the player, one for the enemies **/
+        /** Create our collision groups. One for the player, one for the enemies, and one for leftBoarderWorld **/
+
         this.playerCollisionGroup = game.physics.p2.createCollisionGroup();
         this.enemiesCollisionGroup = game.physics.p2.createCollisionGroup();
         this.borderCollisionGroup = game.physics.p2.createCollisionGroup();
@@ -38,7 +39,7 @@ PhaserGame.Game.prototype = {
 
         /** Create player physics body **/
 
-        this.physics.p2.enable(this.player, false);
+        this.physics.p2.enable(this.player, true);
         this.player.body.setRectangle(90, 70);
         this.player.body.fixedRotation = true;
 
@@ -51,7 +52,7 @@ PhaserGame.Game.prototype = {
 
         this.borderLeft = this.add.sprite(0, 0, 'border-vertical');
         this.borderLeft.scale.set(1);
-        this.physics.p2.enable(this.borderLeft, false);
+        this.physics.p2.enable(this.borderLeft, true);
         this.borderLeft.body.static = true;
         this.borderLeft.body.setRectangle(this.borderLeft.width, this.borderLeft.height);
         this.borderLeft.body.setCollisionGroup(this.borderCollisionGroup);
@@ -99,9 +100,10 @@ PhaserGame.Game.prototype = {
         this.enemy.id = enemyName + Math.floor((Math.random() * 1000) + 1);
         this.enemy.scale.set(1);
 
-        this.physics.p2.enable(this.enemy, false);
+        this.physics.p2.enable(this.enemy, true);
         this.enemy.body.setRectangle(this.enemy.width, this.enemy.height);
         this.enemy.body.fixedRotation = true;
+        this.enemy.body.collideWorldBounds = false;
 
         this.enemy.body.setCollisionGroup(this.enemiesCollisionGroup);
         this.enemy.body.collides(this.playerCollisionGroup);
