@@ -96,7 +96,7 @@ PhaserGame.Game.prototype = {
         this.enemy.body.setCollisionGroup(this.enemiesCollisionGroup);
         this.enemy.body.collides(this.playerCollisionGroup);
 
-        game.debug.spriteBounds(this.enemy);
+        // game.debug.spriteBounds(this.enemy);
     },
 	update: function() {
 
@@ -135,7 +135,7 @@ PhaserGame.Game.prototype = {
     render: function() {
 
         /** debug player body collision **/
-        game.debug.spriteBounds(this.player);
+        // game.debug.spriteBounds(this.player);
     }
 };
 
