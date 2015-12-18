@@ -11,7 +11,7 @@ PhaserGame.WorldMap.prototype = {
         var mapGroup;
 
         // Intégrer la map
-        this.mapmonde = this.add.sprite(0, 0, 'worldmap_' + PhaserGame.stage);
+        this.mapmonde = this.add.sprite(0, 0, 'worldmap_' + PhaserGame.lastCompletedStage);
 
         // Redimension de la map au format de l'écran
         var scalex = PhaserGame.width / this.mapmonde.width;
@@ -29,7 +29,7 @@ PhaserGame.WorldMap.prototype = {
 
         mapGroup = this.add.group();
 
-        for(var i=0; i<=PhaserGame.stage; i++) {
+        for(var i=0; i<=PhaserGame.lastCompletedStage; i++) {
             var stage = this.add.image(coords[i].x*scalex, coords[i].y*scaley, "stage");
 
             // Positionnement par rapport au centre de l'image
@@ -46,9 +46,8 @@ PhaserGame.WorldMap.prototype = {
 
     },
     selectStage: function(stage) {
-        PhaserGame.stage = stage.number;
+        PhaserGame.selectedStage = stage.number;
         this.game.state.start('PreGameDialog');
-        // alert(stage.number);
     }
 };
 

@@ -16,8 +16,8 @@ PhaserGame.Preloader.prototype = {
         /** Level **/
         this.load.image('player',                   'assets/img/game/unicorn.png');
         this.load.image('speed_effect',             'assets/img/game/speed_effect.png');
-        this.load.image('bg_stage_2',               'assets/img/game/background/background_stage_1.png');
-        this.load.image('bg_stage_1',               'assets/img/game/background/background_stage_2.png');
+        this.load.image('bg_stage_1',               'assets/img/game/background/background_stage_1.png');
+        this.load.image('bg_stage_2',               'assets/img/game/background/background_stage_2.png');
 
         /** Enemy **/
         this.load.image('enemy_1',                  'assets/img/game/enemy/avion-ligne.png');

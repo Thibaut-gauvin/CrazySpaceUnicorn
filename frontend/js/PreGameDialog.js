@@ -15,7 +15,7 @@ PhaserGame.PreGameDialog.prototype = {
         var scaley = PhaserGame.height / this.buttonContinue.height;
         this.buttonContinue.scale.setTo(scalex, scaley);
 
-        console.log('stage number: ' + PhaserGame.stage);
+        console.log('Stage N°' + PhaserGame.lastCompletedStage);
 	},
     startGame: function() {
 

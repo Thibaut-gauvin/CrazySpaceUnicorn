@@ -15,7 +15,10 @@ var PhaserGame = {
 
     width: width,
     height: height,
-    stage: 4,
+
+    selectedStage: 0,
+    lastCompletedStage: 0,
+    totalStage: 5,
     stageName: '',
 
     levelScore: 0,
