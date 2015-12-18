@@ -16,7 +16,7 @@ PhaserGame.MainMenu.prototype = {
         this.mainMenu.scale.setTo(scalex, scaley);
 
         var buttons = {
-            button1:{ y:450, image:'button-start', fonction:this.displayWorldMap },
+            button1:{ y:450, image:'button-start', fonction:this.displayPreGameDialog },
             button2:{ y:575, image:'button-score', fonction:'' },
             button3:{ y:700, image:'button-controls', fonction:this.displayHowToPlay },
             button4:{ y:825, image:'button-credits', fonction:this.displayCredits }
@@ -27,8 +27,8 @@ PhaserGame.MainMenu.prototype = {
         	this.startButton.scale.setTo(scalex,scaley);
         }
 	},
-	displayWorldMap: function() {
-		this.game.state.start('WorldMap');
+	displayPreGameDialog: function() {
+		this.game.state.start('PreGameDialog');
 	},
     displayCredits: function() {
         this.game.state.start('Credits');

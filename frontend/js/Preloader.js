@@ -19,6 +19,7 @@ PhaserGame.Preloader.prototype = {
         this.load.image('player',                   'assets/img/game/unicorn.png');
 
         /** Mapmonde **/
+        this.load.image('worldmap_title',               'assets/img/menu/worldmap/worldmap.png');
         this.load.image('worldmap_0',               'assets/img/menu/worldmap/worldmap1-1.png');
         this.load.image('worldmap_1',               'assets/img/menu/worldmap/worldmap1-2.png');
         this.load.image('worldmap_2',               'assets/img/menu/worldmap/worldmap2-3.png');
@@ -36,6 +37,13 @@ PhaserGame.Preloader.prototype = {
         this.load.spritesheet('button-credits',     'assets/img/menu/btn-credits.png', 425, 82);
         this.load.image('howToPlay',                'assets/img/menu/how_to_play.png');
         this.load.image('credits',                  'assets/img/menu/credit.png');
+
+        /** Scénario **/
+        this.load.image('scene1',           'assets/img/scenario/scene1.png');
+        this.load.image('scene2',           'assets/img/scenario/scene2.png');
+        this.load.image('scene3',           'assets/img/scenario/scene3.png');
+        this.load.image('scene4',           'assets/img/scenario/scene4.png');
+        this.load.image('skip',           'assets/img/scenario/skip.png');
 
         /** Story Quest **/
         // this.load.image('img name',   'path/to/file');

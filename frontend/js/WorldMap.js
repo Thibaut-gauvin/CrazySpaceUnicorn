@@ -45,10 +45,13 @@ PhaserGame.WorldMap.prototype = {
             mapGroup.add(stage);
         }
 
+        this.title = this.add.sprite(PhaserGame.width*0.5, 40, 'worldmap_title');
+        this.title.scale.setTo(0.2, 0.2);
+        this.title.anchor.setTo(0.5);
     },
     selectStage: function(stage) {
         PhaserGame.stage = stage.number;
-        this.game.state.start('PreGameDialog');
+        this.game.state.start('Game');
         // alert(stage.number);
     }
 };
