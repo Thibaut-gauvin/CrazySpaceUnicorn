@@ -14,6 +14,8 @@ PhaserGame.Preloader.prototype = {
         this.load.setPreloadSprite(this.preloadBar);
 
         /** Level **/
+        this.load.image('border-vertical',          'assets/img/game/border-vertical.png');
+
         this.load.image('player',                   'assets/img/game/unicorn.png');
         this.load.image('speed_effect',             'assets/img/game/speed_effect.png');
         this.load.image('bg_stage_1',               'assets/img/game/background/background_stage_1.png');

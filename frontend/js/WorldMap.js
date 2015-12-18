@@ -8,6 +8,7 @@ PhaserGame.WorldMap = function(game) {};
 
 PhaserGame.WorldMap.prototype = {
     create: function() {
+
         var mapGroup;
 
         // Intégrer la map

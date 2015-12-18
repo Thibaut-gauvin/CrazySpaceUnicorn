@@ -16,7 +16,6 @@ PhaserGame.Game.prototype = {
         /** Create our collision groups. One for the player, one for the enemies **/
         this.playerCollisionGroup = game.physics.p2.createCollisionGroup();
         this.enemiesCollisionGroup = game.physics.p2.createCollisionGroup();
-
         game.physics.p2.updateBoundsCollisionGroup();
     },
     create: function() {
@@ -30,7 +29,6 @@ PhaserGame.Game.prototype = {
         }
         this.currentLevel.autoScroll(PhaserGame.timeSpeed, 0);
 
-
         /** Create player and place it middle left **/
 
         var startingPos = new Phaser.Point( 50, (game.stage.height/2) - 20);
@@ -39,7 +37,7 @@ PhaserGame.Game.prototype = {
 
         /** Create player physics body **/
 
-        this.physics.p2.enable(this.player, true);
+        this.physics.p2.enable(this.player, false);
         this.player.body.setRectangle(90, 70);
         this.player.body.fixedRotation = true;
 
@@ -47,6 +45,12 @@ PhaserGame.Game.prototype = {
 
         this.player.body.setCollisionGroup(this.playerCollisionGroup);
         this.player.body.collides(this.enemiesCollisionGroup, this.GameOver, this);
+
+
+
+        this.borderGroup = this.add.group();
+        this.physics.p2.enable(this.borderGroup, true);
+        this.borderGroup.create(0, 0, 'border-vertical');
 
         /** Create enemy generator **/
 
@@ -61,25 +65,26 @@ PhaserGame.Game.prototype = {
 
         /** Display score on HUD **/
 
-        this.timerText = this.add.text(50, 20, "Score: " + this.timer, this.fontScore);
-        this.timerText.anchor.set(0.5);
+        this.scoreText = this.add.text(70, 20, "Score: " + this.timer, this.fontScore);
+        this.scoreText.anchor.set(0.5);
+
+        this.totalScoreText = this.add.text(70, 40, "Total Score: " + PhaserGame.TotalScore, this.fontScore);
+        this.totalScoreText.anchor.set(0.5);
+
         this.time.events.loop(Phaser.Timer.SECOND, this.updateCounter, this);
     },
 	updateCounter: function() {
         this.timer++;
 
-        console.log(this.timer);
-
-
-        if (this.timer >= 5) {
-            this.levelComplete;
-
-
-            console.log('levelComplete reached !');
+        if (this.timer >= PhaserGame.timeToCompleteLevel) {
+            this.levelComplete();
         }
 
         this.score = this.score + 3;
-        this.timerText.setText("Time: " + this.score);
+        PhaserGame.TotalScore += this.score;
+
+        this.scoreText.setText("Score: " + this.score);
+        this.totalScoreText.setText("Total Score: " + PhaserGame.TotalScore);
 	},
     generateEnemies: function() {
 
@@ -89,14 +94,13 @@ PhaserGame.Game.prototype = {
         this.enemy.id = enemyName + Math.floor((Math.random() * 1000) + 1);
         this.enemy.scale.set(1);
 
-        this.physics.p2.enable(this.enemy, true);
+        this.physics.p2.enable(this.enemy, false);
         this.enemy.body.setRectangle(this.enemy.width, this.enemy.height);
         this.enemy.body.fixedRotation = true;
 
         this.enemy.body.setCollisionGroup(this.enemiesCollisionGroup);
         this.enemy.body.collides(this.playerCollisionGroup);
-
-        // game.debug.spriteBounds(this.enemy);
+        this.enemy.body.collides(this.borderGroup, this.DeleteEnemy, this);
     },
 	update: function() {
 
@@ -124,18 +128,28 @@ PhaserGame.Game.prototype = {
     },
     levelComplete: function () {
 
-        console.log("levelComplete function");
+        PhaserGame.lastCompletedStage += 1;
+        PhaserGame.TotalScore = PhaserGame.TotalScore + this.score;
+
+        if (PhaserGame.lastCompletedStage == PhaserGame.totalStage) {
+            this.game.state.start('EndGame');
+        } else {
+            this.game.state.start('WorldMap');
+        }
+    },
+    DeleteEnemy: function () {
+
+
+
+        console.log('collision !');
+
+
+
     },
     GameOver: function () {
 
         PhaserGame.TotalScore = this.score;
-
         this.game.state.start('GameOver');
-    },
-    render: function() {
-
-        /** debug player body collision **/
-        // game.debug.spriteBounds(this.player);
     }
 };
 
