@@ -45,6 +45,9 @@ PhaserGame.WorldMap.prototype = {
             mapGroup.add(stage);
         }
 
+        this.title = this.add.sprite(PhaserGame.width*0.5, 40, 'worldmap_title');
+        this.title.scale.setTo(0.2, 0.2);
+        this.title.anchor.setTo(0.5);
     },
     selectStage: function(stage) {
         PhaserGame.selectedStage = stage.number;

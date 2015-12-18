@@ -30,6 +30,7 @@ PhaserGame.Preloader.prototype = {
 
         /** Mapmonde **/
         this.load.image('stage',                    'assets/img/menu/stage.png');
+        this.load.image('worldmap_title',           'assets/img/menu/worldmap/worldmap_title.png');
         this.load.image('worldmap_0',               'assets/img/menu/worldmap/worldmap1-1.png');
         this.load.image('worldmap_1',               'assets/img/menu/worldmap/worldmap1-2.png');
         this.load.image('worldmap_2',               'assets/img/menu/worldmap/worldmap2-3.png');
@@ -39,7 +40,6 @@ PhaserGame.Preloader.prototype = {
         /** Menu **/
         this.load.image('menu-background',          'assets/img/menu/menu-background.png');
         this.load.image('mainMenu',                 'assets/img/menu/main_menu.png');
-        // spritesheet: function (key, url, frameWidth, frameHeight, frameMax, margin, spacing)
         this.load.spritesheet('button-start',       'assets/img/menu/btn-start.png',    425, 82);
         this.load.spritesheet('button-score',       'assets/img/menu/btn-score.png',    425, 82);
         this.load.spritesheet('button-controls',    'assets/img/menu/btn-controls.png', 425, 82);
@@ -47,8 +47,12 @@ PhaserGame.Preloader.prototype = {
         this.load.image('howToPlay',                'assets/img/menu/how_to_play.png');
         this.load.image('credits',                  'assets/img/menu/credit.png');
 
-        /** Story Quest **/
-        // this.load.image('img name',   'path/to/file');
+        /** Scénario **/
+        this.load.image('scene1',                   'assets/img/scenario/scene1.png');
+        this.load.image('scene2',                   'assets/img/scenario/scene2.png');
+        this.load.image('scene3',                   'assets/img/scenario/scene3.png');
+        this.load.image('scene4',                   'assets/img/scenario/scene4.png');
+        this.load.image('skip',                     'assets/img/scenario/skip.png');
 
     },
 	create: function() {

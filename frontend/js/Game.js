@@ -39,7 +39,7 @@ PhaserGame.Game.prototype = {
 
         /** Create player physics body **/
 
-        this.physics.p2.enable(this.player, true);
+        this.physics.p2.enable(this.player, false);
         this.player.body.setRectangle(90, 70);
         this.player.body.fixedRotation = true;
 
@@ -52,7 +52,7 @@ PhaserGame.Game.prototype = {
 
         this.borderLeft = this.add.sprite(0, 0, 'border-vertical');
         this.borderLeft.scale.set(1);
-        this.physics.p2.enable(this.borderLeft, true);
+        this.physics.p2.enable(this.borderLeft, false);
         this.borderLeft.body.static = true;
         this.borderLeft.body.setRectangle(this.borderLeft.width, this.borderLeft.height);
         this.borderLeft.body.setCollisionGroup(this.borderCollisionGroup);
@@ -74,7 +74,7 @@ PhaserGame.Game.prototype = {
         this.scoreText = this.add.text(70, 20, "Score: " + this.timer, this.fontScore);
         this.scoreText.anchor.set(0.5);
 
-        this.totalScoreText = this.add.text(70, 40, "Total Score: " + PhaserGame.TotalScore, this.fontScore);
+        this.totalScoreText = this.add.text(90, 40, "Total Score: " + PhaserGame.TotalScore, this.fontScore);
         this.totalScoreText.anchor.set(0.5);
 
         this.time.events.loop(Phaser.Timer.SECOND, this.updateCounter, this);
@@ -100,10 +100,9 @@ PhaserGame.Game.prototype = {
         this.enemy.id = enemyName + Math.floor((Math.random() * 1000) + 1);
         this.enemy.scale.set(1);
 
-        this.physics.p2.enable(this.enemy, true);
+        this.physics.p2.enable(this.enemy, false);
         this.enemy.body.setRectangle(this.enemy.width, this.enemy.height);
         this.enemy.body.fixedRotation = true;
-        this.enemy.body.collideWorldBounds = false;
 
         this.enemy.body.setCollisionGroup(this.enemiesCollisionGroup);
         this.enemy.body.collides(this.playerCollisionGroup);
