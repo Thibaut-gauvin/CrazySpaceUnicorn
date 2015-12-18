@@ -22,7 +22,9 @@ var PhaserGame = {
     timeToCompleteLevel: 15,
 
     levelScore: 0,
-    TotalScore: 0
+    TotalScore: 0,
+
+    EnemyGenerationRate: 2
 };
 
 PhaserGame.Boot = function(game) {};

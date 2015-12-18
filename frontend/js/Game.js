@@ -11,11 +11,12 @@ PhaserGame.Game.prototype = {
 
         this.timer = 0;
         this.score = 0;
-        this.fontScore = { font: "24px Arial", fill: "#e4beef", align: "right" };
+        this.fontScore = { font: "24px Arial", fill: "#e4beef", align: "left" };
 
         /** Create our collision groups. One for the player, one for the enemies **/
         this.playerCollisionGroup = game.physics.p2.createCollisionGroup();
         this.enemiesCollisionGroup = game.physics.p2.createCollisionGroup();
+        this.borderCollisionGroup = game.physics.p2.createCollisionGroup();
         game.physics.p2.updateBoundsCollisionGroup();
     },
     create: function() {
@@ -46,15 +47,19 @@ PhaserGame.Game.prototype = {
         this.player.body.setCollisionGroup(this.playerCollisionGroup);
         this.player.body.collides(this.enemiesCollisionGroup, this.GameOver, this);
 
+        /** border left collision **/
 
-
-        this.borderGroup = this.add.group();
-        this.physics.p2.enable(this.borderGroup, true);
-        this.borderGroup.create(0, 0, 'border-vertical');
+        this.borderLeft = this.add.sprite(0, 0, 'border-vertical');
+        this.borderLeft.scale.set(1);
+        this.physics.p2.enable(this.borderLeft, false);
+        this.borderLeft.body.static = true;
+        this.borderLeft.body.setRectangle(this.borderLeft.width, this.borderLeft.height);
+        this.borderLeft.body.setCollisionGroup(this.borderCollisionGroup);
+        this.borderLeft.body.collides(this.enemiesCollisionGroup, this.DeleteEnemy(), this);
 
         /** Create enemy generator **/
 
-        this.enemyGenerator = this.time.events.loop(Phaser.Timer.SECOND * 0.75, this.generateEnemies, this);
+        this.enemyGenerator = this.time.events.loop(Phaser.Timer.SECOND * PhaserGame.EnemyGenerationRate, this.generateEnemies, this);
         this.enemyGenerator.timer.start();
 
         /** Bind keyboard input to the game **/
@@ -100,7 +105,7 @@ PhaserGame.Game.prototype = {
 
         this.enemy.body.setCollisionGroup(this.enemiesCollisionGroup);
         this.enemy.body.collides(this.playerCollisionGroup);
-        this.enemy.body.collides(this.borderGroup, this.DeleteEnemy, this);
+        this.enemy.body.collides(this.borderCollisionGroup);
     },
 	update: function() {
 
@@ -138,13 +143,7 @@ PhaserGame.Game.prototype = {
         }
     },
     DeleteEnemy: function () {
-
-
-
-        console.log('collision !');
-
-
-
+        console.log('collision enemy avec border !');
     },
     GameOver: function () {
 
