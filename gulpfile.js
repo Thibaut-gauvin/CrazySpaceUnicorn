@@ -8,7 +8,7 @@ var uglify   = require('gulp-uglify'  );
 var config = { bowerDir: './vendor' };
 
 gulp.task( 'default',
-    [ 'build', 'buildProd', 'serve']
+    [ 'build']
 );
 
 gulp.task( 'build',
@@ -16,8 +16,9 @@ gulp.task( 'build',
 );
 
 gulp.task( 'prod',
-    [ 'gameProd', 'views', 'asset', 'css', 'serve' ]
+    [ 'gameProd', 'views', 'asset', 'css' ]
 );
+
 
 /**
  * Start server
@@ -27,7 +28,7 @@ gulp.task('serve', function () {
 });
 
 /**
- * Merge game files (without compiling)
+ * Merge game files (Without compressing it)
  */
 gulp.task( 'game', function() {
     gulp.src(
@@ -40,7 +41,7 @@ gulp.task( 'game', function() {
 });
 
 /**
- * Merge & Compile game files (More Longer)
+ * Merge & Compress game files (More Longer, using in Prod env)
  */
 gulp.task( 'gameProd', function() {
     gulp.src(
@@ -100,4 +101,13 @@ gulp.task( 'css', function() {
         ])
         .pipe( concat( 'style.css' ) )
         .pipe( gulp.dest('dist/public/css') );
+});
+
+/**
+ * Watch Change in Js, Css & Html Files
+ */
+gulp.task('watch', function () {
+    gulp.watch('frontend/*.html', ['views', 'serve']);
+    gulp.watch('frontend/**/*.css', ['css', 'serve']);
+    gulp.watch('frontend/**/*.js', ['game', 'serve']);
 });
