@@ -1,6 +1,8 @@
+![logo](frontend/assets/img/site/logo.png)
+
 # Crazy Space Unicorn
 
-**A game made with pure Javascript and some Html/Css**
+**A game made with pure Javascript and some Html/Css during a GameJam**
 
 **We use:**
 - NodeJs
@@ -20,14 +22,12 @@ You need git installed on your machine
 **Now place into the project directory and Install dependency:**
 
     $ npm install
-    $ bower install
+    $ ./node_modules/bower/bin/bower install
 
-**Build the project with:**
+**Build the project and start the game with:**
 
-    $ gulp build
-
-**And start the game with:**
-
-    $ gulp serve
+    $ ./node_modules/gulp/bin/gulp.js build
 
 Now you can play the game at [localhost:3000](http://localhost:3000)
+
+[demo site](http://www.gauvin-thibaut.com:8080/)
